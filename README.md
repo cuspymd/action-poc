@@ -6,5 +6,6 @@ For Action POC
 ## How to run
 
 ```shell
+export OPENAI_API_KEY=<Your key>
 python -m action_poc.main
 ```
