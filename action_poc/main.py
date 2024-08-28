@@ -1,15 +1,10 @@
-from openai import OpenAI
-client = OpenAI()
+from action_poc.multillm import MultiLLM
 
-completion = client.chat.completions.create(
-    model="gpt-4o-mini",
-    messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {
-            "role": "user",
-            "content": "Write a haiku about recursion in programming."
-        }
-    ]
-)
+if __name__ == "__main__":
+    multiLLM = MultiLLM()
+    print("assistant: 무엇을 도와드릴까요?")
 
-print(completion.choices[0].message)
+    while True:
+        user_query = input("user: ")
+        assistant_reply = multiLLM.query(user_query)
+        print(f"assistant: {assistant_reply}")
